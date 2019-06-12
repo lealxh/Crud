@@ -1,0 +1,30 @@
+﻿@model Crud.Presentation.ViewModels.CreateStateViewModel
+
+<h4>State</h4>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <input type="hidden" asp-for="State.Id"/>
+        <label asp-for="State.Name" class="control-label"></label>
+        <input asp-for="State.Name" class="form-control" />
+        <span asp-validation-for="State.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="countryid" class="control-label">Country</label>
+
+        <select asp-for="State.CountryId" id="countryid" asp-items="Model.CountriesList" class="form-control">
+            <option value="">Please select a Country</option>
+        </select>
+        <span asp-validation-for="State.CountryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Edit" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
